@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/main.css">
+    <title>BrainRot Spel</title>
+</head>
+<body>
+    <div class="game-container">
+        <h1 id="game-title">Druk op een toets om te beginnen</h1>
+        <div id="score-display">Score: 0</div>
+        <div id="level-display">Niveau: 1</div>
+        
+        <div class="buttons-container">
+            <button class="brainrot-button red" data-color="red">
+                <img src="assets/images/tralala.avif" alt="Image 1">
+            </button>
+            <button class="brainrot-button blue" data-color="blue">
+                <img src="assets/images/tuntun.jpg" alt="Image 2">
+            </button>
+            <button class="brainrot-button yellow" data-color="yellow">
+                <img src="assets/images/chimpanzine.webp" alt="Image 3">
+            </button>
+            <button class="brainrot-button green" data-color="green">
+                <img src="assets/images/capuncion.jpeg" alt="Image 4">
+            </button>
+        </div>
+        
+        <div class="controls">
+            <button id="start-button">Start</button>
+            <button id="restart-button">Herstart</button>
+            <div class="audio-control">
+                <button id="music-toggle">Muziek: Aan</button>
+                <input type="range" id="volume-slider" min="0" max="100" value="50">
+            </div>
+        </div>
+        
+        <div class="info">
+            <p>Beste score: <span id="best-score">0</span></p>
+            <p id="game-message"></p>
+        </div>
+    </div>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+    <script src="scripts/index.js"></script>
+</body>
+</html>
