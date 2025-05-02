@@ -1,0 +1,190 @@
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+
+body {
+font-family: 'Poppins', sans-serif;
+background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+display: flex;
+justify-content: center;
+align-items: center;
+min-height: 100vh;
+color: #333;
+}
+
+.game-container {
+background-color: #fff;
+border-radius: 20px;
+padding: 30px;
+box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+text-align: center;
+max-width: 500px;
+width: 90%;
+}
+
+#game-title {
+font-size: 2rem;
+margin-bottom: 20px;
+color: #333;
+transition: all 0.3s ease;
+}
+
+#score-display, #level-display {
+font-size: 1.2rem;
+margin-bottom: 10px;
+font-weight: 600;
+}
+
+.buttons-container {
+display: grid;
+grid-template-columns: 1fr 1fr;
+grid-template-rows: 1fr 1fr;
+gap: 15px;
+margin: 30px auto;
+width: 300px;
+height: 300px;
+}
+
+.brainrot-button {
+border: none;
+outline: none;
+cursor: pointer;
+border-radius: 15px;
+transition: all 0.2s ease;
+box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+overflow: hidden;
+padding: 0;
+position: relative;
+}
+
+.brainrot-button img {
+width: 100%;
+height: 100%;
+object-fit: cover;
+display: block;
+border-radius: 15px;
+}
+
+.brainrot-button:active {
+transform: scale(0.95);
+box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.lit-up {
+filter: brightness(1.5) saturate(1.5);
+transform: scale(1.05);
+box-shadow: 0 0 20px rgba(255, 255, 255, 0.7);
+}
+
+.controls {
+margin: 20px 0;
+display: flex;
+justify-content: center;
+gap: 20px;
+flex-wrap: wrap;
+}
+
+.audio-control {
+display: flex;
+flex-direction: column;
+align-items: center;
+margin-top: 10px;
+width: 100%;
+}
+
+#music-toggle {
+background-color: #6A5ACD;
+color: white;
+border: none;
+padding: 8px 15px;
+border-radius: 50px;
+cursor: pointer;
+font-size: 0.9rem;
+font-weight: 600;
+transition: all 0.2s ease;
+margin-bottom: 10px;
+}
+
+#music-toggle:hover {
+background-color: #8A7AED;
+}
+
+#volume-slider {
+width: 150px;
+height: 5px;
+background: #d3d3d3;
+outline: none;
+border-radius: 5px;
+}
+
+#volume-slider::-webkit-slider-thumb {
+-webkit-appearance: none;
+appearance: none;
+width: 15px;
+height: 15px;
+border-radius: 50%;
+background: #6A5ACD;
+cursor: pointer;
+}
+
+#volume-slider::-moz-range-thumb {
+width: 15px;
+height: 15px;
+border-radius: 50%;
+background: #6A5ACD;
+cursor: pointer;
+}
+
+#start-button, #restart-button {
+background-color: #333;
+color: white;
+border: none;
+padding: 10px 20px;
+border-radius: 50px;
+cursor: pointer;
+font-size: 1rem;
+font-weight: 600;
+transition: all 0.2s ease;
+}
+
+#start-button:hover, #restart-button:hover {
+background-color: #555;
+transform: translateY(-2px);
+}
+
+#start-button:active, #restart-button:active {
+transform: translateY(0);
+}
+
+#restart-button {
+background-color: #FF4C4C;
+display: none;
+}
+
+#restart-button:hover {
+background-color: #FF6666;
+}
+
+.info {
+margin-top: 20px;
+font-size: 1rem;
+}
+
+#game-message {
+margin-top: 10px;
+height: 20px;
+color: #FF4C4C;
+font-weight: 600;
+}
+
+.game-over {
+animation: shake 0.5s ease-in-out;
+}
+
+@keyframes shake {
+0%, 100% { transform: translateX(0); }
+20%, 60% { transform: translateX(-10px); }
+40%, 80% { transform: translateX(10px); }
+}
