@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles/main.css">
-    <link rel="stylesheet" href="styles/tutorial.css">
+    <link rel="stylesheet" href="src/styles/main.css">
+    <link rel="stylesheet" href="src/styles/tutorial.css">
     <title>BrainRot Handleiding</title>
 </head>
 <body>
@@ -21,7 +21,7 @@
                 <div class="step-content">
                     <h3>Download de benodigde bestanden</h3>
                     <div class="tutorial-download">
-                        <a href="assets/download/project-1-workshop-start-to-code-omer.zip" download>
+                        <a href="src/assets/download/project-1-workshop-start-to-code-omer.zip" download>
                           ⬇️ Download bronbestand (ZIP)
                         </a>
                       </div>
@@ -35,7 +35,7 @@
                     <h3>Open de mappenstructuur</h3>
                     <p>Je zou de volgende mappenstructuur moeten zien:</p>
                     <ul>
-                        <li><strong>assets/</strong> - Voor afbeeldingen en geluiden</li>
+                        <li><strong>src/assets/</strong> - Voor afbeeldingen en geluiden</li>
                         <li><strong>styles/</strong> - Voor CSS-bestanden</li>
                         <li><strong>scripts/</strong> - Voor JavaScript-bestanden</li>
                         <li><strong>index.html</strong> - Hoofdpagina van het spel</li>
@@ -69,16 +69,16 @@
         
         &lt;div class="buttons-container"&gt;
             &lt;button class="brainrot-button red" data-color="red"&gt;
-                &lt;img src="assets/images/tralala.avif" alt="Image 1"&gt;
+                &lt;img src="src/assets/images/tralala.avif" alt="Image 1"&gt;
             &lt;/button&gt;
             &lt;button class="brainrot-button blue" data-color="blue"&gt;
-                &lt;img src="assets/images/tuntun.jpg" alt="Image 2"&gt;
+                &lt;img src="src/ssets/images/tuntun.jpg" alt="Image 2"&gt;
             &lt;/button&gt;
             &lt;button class="brainrot-button yellow" data-color="yellow"&gt;
-                &lt;img src="assets/images/chimpanzine.webp" alt="Image 3"&gt;
+                &lt;img src="src/assets/images/chimpanzine.webp" alt="Image 3"&gt;
             &lt;/button&gt;
             &lt;button class="brainrot-button green" data-color="green"&gt;
-                &lt;img src="assets/images/capuncion.jpeg" alt="Image 4"&gt;
+                &lt;img src="src/assets/images/capuncion.jpeg" alt="Image 4"&gt;
             &lt;/button&gt;
         &lt;/div&gt;
         
@@ -339,11 +339,11 @@ body {
     const volumeSlider = $("#volume-slider");
 
     const sounds = {
-        success: new Audio("assets/sounds/correct.mp3"),
-        wrong: new Audio("assets/sounds/wrong.mp3")
+        success: new Audio("src/assets/sounds/correct.mp3"),
+        wrong: new Audio("src/assets/sounds/wrong.mp3")
     };
 
-    const backgroundMusic = new Audio("assets/sounds/game-song.mp3");
+    const backgroundMusic = new Audio("src/assets/sounds/game-song.mp3");
     backgroundMusic.loop = true;
     backgroundMusic.volume = 0.5;
 
@@ -528,8 +528,8 @@ body {
                     <h3>Maak de benodigde mappen aan</h3>
                     <p>Zorg ervoor dat je de volgende mappenstructuur hebt:</p>
                     <ul>
-                        <li><strong>assets/images/</strong> - Voor spelafbeeldingen</li>
-                        <li><strong>assets/sounds/</strong> - Voor geluidsbestanden</li>
+                        <li><strong>src/assets/images/</strong> - Voor spelafbeeldingen</li>
+                        <li><strong>src/assets/sounds/</strong> - Voor geluidsbestanden</li>
                 
                     </ul>
                 </div>
@@ -539,7 +539,7 @@ body {
                 <div class="step-number">2</div>
                 <div class="step-content">
                     <h3>Voeg de afbeeldingen toe</h3>
-                    <p>Plaats vier afbeeldingen in de assets/images/ map met de volgende namen:</p>
+                    <p>Plaats vier afbeeldingen in de src/assets/images/ map met de volgende namen:</p>
                     <ul>
                         <li>tralala.avif</li>
                         <li>tuntun.jpg</li>
@@ -554,7 +554,7 @@ body {
                 <div class="step-number">3</div>
                 <div class="step-content">
                     <h3>Voeg de geluiden toe</h3>
-                    <p>Plaats de volgende geluidsbestanden in de assets/sounds/ map:</p>
+                    <p>Plaats de volgende geluidsbestanden in de src/assets/sounds/ map:</p>
                     <ul>
                         <li>correct.mp3 - Een positief geluid voor juiste antwoorden</li>
                         <li>wrong.mp3 - Een negatief geluid voor foute antwoorden</li>
@@ -572,7 +572,7 @@ body {
                     <h3>Open het spel in je browser</h3>
                     <p>Open het index.html bestand in je webbrowser. Je zou nu het volgende moeten zien:</p>
                     <div class="tutorial-image">
-                        <img src="assets/images/result.png" alt="Eindresultaat">
+                        <img src="src/assets/images/result.png" alt="Eindresultaat">
                     </div>
                 </div>
             </div>
