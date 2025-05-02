@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/tutorial.css">
+    <title>BrainRot Handleiding</title>
+</head>
+<body>
+    <div class="tutorial-container">
+        <a href="index.html" style="display: block; margin-bottom: 15px; color: #6A5ACD; text-decoration: none; font-weight: bold;">← Terug naar Spel</a>
+        
+        <h1>Hoe maak je BrainRot Spel?</h1>
+        <p class="intro-text">We gaan een leuk geheugenspel bouwen waarin je een patroon moet onthouden en herhalen!</p>
+        
+        <div class="tutorial-section">
+            <h2>STAP 1 - MAPPENSTRUCTUUR</h2>
+            <div class="tutorial-step">
+                <div class="step-number">1</div>
+                <div class="step-content">
+                    <h3>Download de benodigde bestanden</h3>
+                    <div class="tutorial-download">
+                        <a href="assets/download/project-1-workshop-start-to-code-omer.zip" download>
+                          ⬇️ Download bronbestand (ZIP)
+                        </a>
+                      </div>
+                      
+                </div>
+            </div>
+            
+            <div class="tutorial-step">
+                <div class="step-number">2</div>
+                <div class="step-content">
+                    <h3>Open de mappenstructuur</h3>
+                    <p>Je zou de volgende mappenstructuur moeten zien:</p>
+                    <ul>
+                        <li><strong>assets/</strong> - Voor afbeeldingen en geluiden</li>
+                        <li><strong>styles/</strong> - Voor CSS-bestanden</li>
+                        <li><strong>scripts/</strong> - Voor JavaScript-bestanden</li>
+                        <li><strong>index.html</strong> - Hoofdpagina van het spel</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <div class="tutorial-section">
+            <h2>STAP 2 - HTML STRUCTUUR</h2>
+            <div class="tutorial-step">
+                <div class="step-number">1</div>
+                <div class="step-content">
+                    <h3>Maak het HTML-bestand</h3>
+                    <p>Open index.html en kopieer de volgende code:</p>
+                    <div class="code-block">
+                        <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="nl"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;link rel="stylesheet" href="styles/main.css"&gt;
+    &lt;title&gt;BrainRot Spel&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;div class="game-container"&gt;
+        &lt;a href="tutorial.html" style="display: block; margin-bottom: 15px; color: #6A5ACD; text-decoration: none; font-weight: bold;"&gt;Tutorial&lt;/a&gt;
+        &lt;h1 id="game-title"&gt;Druk op een toets om te beginnen&lt;/h1&gt;
+        &lt;div id="score-display"&gt;Score: 0&lt;/div&gt;
+        &lt;div id="level-display"&gt;Niveau: 1&lt;/div&gt;
+        
+        &lt;div class="buttons-container"&gt;
+            &lt;button class="brainrot-button red" data-color="red"&gt;
+                &lt;img src="assets/images/tralala.avif" alt="Image 1"&gt;
+            &lt;/button&gt;
+            &lt;button class="brainrot-button blue" data-color="blue"&gt;
+                &lt;img src="assets/images/tuntun.jpg" alt="Image 2"&gt;
+            &lt;/button&gt;
+            &lt;button class="brainrot-button yellow" data-color="yellow"&gt;
+                &lt;img src="assets/images/chimpanzine.webp" alt="Image 3"&gt;
+            &lt;/button&gt;
+            &lt;button class="brainrot-button green" data-color="green"&gt;
+                &lt;img src="assets/images/capuncion.jpeg" alt="Image 4"&gt;
+            &lt;/button&gt;
+        &lt;/div&gt;
+        
+        &lt;div class="controls"&gt;
+            &lt;button id="start-button"&gt;Start&lt;/button&gt;
+            &lt;button id="restart-button"&gt;Herstart&lt;/button&gt;
+            &lt;div class="audio-control"&gt;
+                &lt;button id="music-toggle"&gt;Muziek: Aan&lt;/button&gt;
+                &lt;input type="range" id="volume-slider" min="0" max="100" value="50"&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+        
+        &lt;div class="info"&gt;
+            &lt;p&gt;Beste score: &lt;span id="best-score"&gt;0&lt;/span&gt;&lt;/p&gt;
+            &lt;p id="game-message"&gt;&lt;/p&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    
+    &lt;script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"&gt;&lt;/script&gt;
+    &lt;script src="scripts/index.js"&gt;&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="tutorial-section">
+            <h2>STAP 3 - CSS STYLING</h2>
+            <div class="tutorial-step">
+                <div class="step-number">1</div>
+                <div class="step-content">
+                    <h3>Voeg CSS toe</h3>
+                    <p>Maak een map 'styles' aan als deze nog niet bestaat, en maak daarin een bestand 'main.css'. Kopieer de volgende code:</p>
+                    <div class="code-block">
+                        <pre><code>* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    color: #333;
+}
+
+.game-container {
+    background-color: #fff;
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+    text-align: center;
+    max-width: 500px;
+    width: 90%;
+}
+
+#game-title {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #333;
+    transition: all 0.3s ease;
+}
+
+#score-display, #level-display {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.buttons-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 15px;
+    margin: 30px auto;
+    width: 300px;
+    height: 300px;
+}
+
+.brainrot-button {
+    border: none;
+    outline: none;
+    cursor: pointer;
+    border-radius: 15px;
+    transition: all 0.2s ease;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    padding: 0;
+    position: relative;
+}
+
+.brainrot-button img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    border-radius: 15px;
+}
+
+.brainrot-button:active {
+    transform: scale(0.95);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.lit-up {
+    filter: brightness(1.5) saturate(1.5);
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.7);
+}
+
+.controls {
+    margin: 20px 0;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.audio-control {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 10px;
+    width: 100%;
+}
+
+#music-toggle {
+    background-color: #6A5ACD;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 50px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: 600;
+    transition: all 0.2s ease;
+    margin-bottom: 10px;
+}
+
+#music-toggle:hover {
+    background-color: #8A7AED;
+}
+
+#volume-slider {
+    width: 150px;
+    height: 5px;
+    background: #d3d3d3;
+    outline: none;
+    border-radius: 5px;
+}
+
+#volume-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background: #6A5ACD;
+    cursor: pointer;
+}
+
+#volume-slider::-moz-range-thumb {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background: #6A5ACD;
+    cursor: pointer;
+}
+
+#start-button, #restart-button {
+    background-color: #333;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 50px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 600;
+    transition: all 0.2s ease;
+}
+
+#start-button:hover, #restart-button:hover {
+    background-color: #555;
+    transform: translateY(-2px);
+}
+
+#start-button:active, #restart-button:active {
+    transform: translateY(0);
+}
+
+#restart-button {
+    background-color: #FF4C4C;
+    display: none;
+}
+
+#restart-button:hover {
+    background-color: #FF6666;
+}
+
+.info {
+    margin-top: 20px;
+    font-size: 1rem;
+}
+
+#game-message {
+    margin-top: 10px;
+    height: 20px;
+    color: #FF4C4C;
+    font-weight: 600;
+}
+
+.game-over {
+    animation: shake 0.5s ease-in-out;
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    20%, 60% { transform: translateX(-10px); }
+    40%, 80% { transform: translateX(10px); }
+}</code></pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="tutorial-section">
+            <h2>STAP 4 - JAVASCRIPT TOEVOEGEN</h2>
+            <div class="tutorial-step">
+                <div class="step-number">1</div>
+                <div class="step-content">
+                    <h3>Maak het JavaScript-bestand</h3>
+                    <p>Maak een map 'scripts' aan als deze nog niet bestaat, en maak daarin een bestand 'index.js'. Kopieer de volgende code:</p>
+                    <div class="code-block">
+                        <pre><code>$(document).ready(function() {
+    let gamePattern = [];
+    let userPattern = [];
+    let gameStarted = false;
+    let level = 1;
+    let score = 0;
+    let bestScore = localStorage.getItem('brainrotBestScore') || 0;
+    let canClick = false;
+    let musicPlaying = true;
+
+    const gameTitle = $("#game-title");
+    const scoreDisplay = $("#score-display");
+    const levelDisplay = $("#level-display");
+    const bestScoreDisplay = $("#best-score");
+    const gameMessage = $("#game-message");
+    const startButton = $("#start-button");
+    const restartButton = $("#restart-button");
+    const buttons = $(".brainrot-button");
+    const musicToggle = $("#music-toggle");
+    const volumeSlider = $("#volume-slider");
+
+    const sounds = {
+        success: new Audio("assets/sounds/correct.mp3"),
+        wrong: new Audio("assets/sounds/wrong.mp3")
+    };
+
+    const backgroundMusic = new Audio("assets/sounds/game-song.mp3");
+    backgroundMusic.loop = true;
+    backgroundMusic.volume = 0.5;
+
+    const translations = {
+        start: "Druk op een toets om te beginnen",
+        level: "Niveau: ",
+        score: "Score: ",
+        bestScore: "Beste score: ",
+        gameOver: "Spel voorbij! Je score: ",
+        wrongMove: "Verkeerde zet!",
+        yourTurn: "Jouw beurt",
+        watchPattern: "Kijk naar het patroon",
+        musicOn: "Muziek: Aan",
+        musicOff: "Muziek: Uit"
+    };
+
+    function init() {
+        bestScoreDisplay.text(bestScore);
+        startButton.show();
+        restartButton.hide();
+        updateDisplay();
+        
+        setupMusicControls();
+    }
+
+    function setupMusicControls() {
+        backgroundMusic.play().catch(function(error) {
+            console.log("Auto-play prevented: " + error);
+            musicPlaying = false;
+            musicToggle.text(translations.musicOff);
+        });
+        
+        musicToggle.click(function() {
+            if (musicPlaying) {
+                backgroundMusic.pause();
+                musicPlaying = false;
+                musicToggle.text(translations.musicOff);
+            } else {
+                backgroundMusic.play();
+                musicPlaying = true;
+                musicToggle.text(translations.musicOn);
+            }
+        });
+        
+        volumeSlider.on("input", function() {
+            const volume = $(this).val() / 100;
+            backgroundMusic.volume = volume;
+        });
+    }
+
+    function startGame() {
+        gameStarted = true;
+        gamePattern = [];
+        userPattern = [];
+        level = 1;
+        score = 0;
+        
+        gameTitle.text(translations.watchPattern);
+        startButton.hide();
+        updateDisplay();
+        nextSequence();
+    }
+
+    function updateDisplay() {
+        scoreDisplay.text(translations.score + score);
+        levelDisplay.text(translations.level + level);
+    }
+
+    function nextSequence() {
+        userPattern = [];
+        gameMessage.text(translations.watchPattern);
+        canClick = false;
+        
+        const colors = ["red", "blue", "yellow", "green"];
+        const randomColor = colors[Math.floor(Math.random() * 4)];
+        gamePattern.push(randomColor);
+        
+        setTimeout(function() {
+            let i = 0;
+            const interval = setInterval(function() {
+                flashButton(gamePattern[i]);
+                i++;
+                if (i >= gamePattern.length) {
+                    clearInterval(interval);
+                    setTimeout(function() {
+                        gameMessage.text(translations.yourTurn);
+                        canClick = true;
+                    }, 500);
+                }
+            }, 800);
+        }, 1000);
+    }
+
+    function flashButton(color) {
+        const button = $(`.brainrot-button[data-color="${color}"]`);
+        button.addClass("lit-up");
+        
+        setTimeout(function() {
+            button.removeClass("lit-up");
+        }, 400);
+    }
+
+    function handleButtonClick() {
+        if (!gameStarted || !canClick) return;
+        
+        const color = $(this).data("color");
+        userPattern.push(color);
+        
+        flashButton(color);
+        
+        checkAnswer();
+    }
+
+    function checkAnswer() {
+        const currentMove = userPattern.length - 1;
+        
+        if (userPattern[currentMove] === gamePattern[currentMove]) {
+            if (userPattern.length === gamePattern.length) {
+                
+                sounds.success.currentTime = 0;
+                sounds.success.play();
+                
+                score += level * 10;
+                level++;
+                updateDisplay();
+                setTimeout(nextSequence, 1000);
+            }
+        } else {
+            gameOver();
+        }
+    }
+
+    function gameOver() {
+        sounds.wrong.currentTime = 0;
+        sounds.wrong.play();
+        
+        gameTitle.text(translations.gameOver + score);
+        gameMessage.text(translations.wrongMove);
+        
+        if (score > bestScore) {
+            bestScore = score;
+            localStorage.setItem('brainrotBestScore', bestScore);
+            bestScoreDisplay.text(bestScore);
+        }
+        
+        $(".game-container").addClass("game-over");
+        setTimeout(function() {
+            $(".game-container").removeClass("game-over");
+        }, 500);
+        
+        gameStarted = false;
+        restartButton.show();
+        canClick = false;
+    }
+
+    startButton.click(startGame);
+    restartButton.click(startGame);
+    buttons.click(handleButtonClick);
+
+    $(document).keydown(function(event) {
+        if (event.keyCode === 32) {
+            event.preventDefault();
+        }
+        
+        if (!gameStarted) {
+            startGame();
+        }
+    });
+
+    init();
+});</code></pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="tutorial-section">
+            <h2>STAP 5 - AFBEELDINGEN EN GELUIDEN TOEVOEGEN</h2>
+            <div class="tutorial-step">
+                <div class="step-number">1</div>
+                <div class="step-content">
+                    <h3>Maak de benodigde mappen aan</h3>
+                    <p>Zorg ervoor dat je de volgende mappenstructuur hebt:</p>
+                    <ul>
+                        <li><strong>assets/images/</strong> - Voor spelafbeeldingen</li>
+                        <li><strong>assets/sounds/</strong> - Voor geluidsbestanden</li>
+                
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="tutorial-step">
+                <div class="step-number">2</div>
+                <div class="step-content">
+                    <h3>Voeg de afbeeldingen toe</h3>
+                    <p>Plaats vier afbeeldingen in de assets/images/ map met de volgende namen:</p>
+                    <ul>
+                        <li>tralala.avif</li>
+                        <li>tuntun.jpg</li>
+                        <li>chimpanzine.webp</li>
+                        <li>capuncion.jpeg</li>
+                    </ul>
+                    <p>Je kunt je eigen afbeeldingen gebruiken, maar zorg ervoor dat je de bestandsnamen in de HTML-code aanpast.</p>
+                </div>
+            </div>
+            
+            <div class="tutorial-step">
+                <div class="step-number">3</div>
+                <div class="step-content">
+                    <h3>Voeg de geluiden toe</h3>
+                    <p>Plaats de volgende geluidsbestanden in de assets/sounds/ map:</p>
+                    <ul>
+                        <li>correct.mp3 - Een positief geluid voor juiste antwoorden</li>
+                        <li>wrong.mp3 - Een negatief geluid voor foute antwoorden</li>
+                        <li>game-song.mp3 - Achtergrondmuziek voor het spel</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <div class="tutorial-section">
+            <h2>STAP 6 - TEST JE SPEL</h2>
+            <div class="tutorial-step">
+                <div class="step-number">1</div>
+                <div class="step-content">
+                    <h3>Open het spel in je browser</h3>
+                    <p>Open het index.html bestand in je webbrowser. Je zou nu het volgende moeten zien:</p>
+                    <div class="tutorial-image">
+                        <img src="assets/images/result.png" alt="Eindresultaat">
+                    </div>
+                </div>
+            </div>
+            
+            <div class="tutorial-step">
+                <div class="step-number">2</div>
+                <div class="step-content">
+                    <h3>Speel het spel!</h3>
+                    <p>Klik op de startknop of druk op een toets om het spel te beginnen. Onthoud het patroon en herhaal het om punten te verdienen!</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="tutorial-section">
+            <h2>STAP 7 - AANPASSINGEN MAKEN</h2>
+            <div class="tutorial-step">
+                <div class="step-number">1</div>
+                <div class="step-content">
+                    <h3>Personaliseer je spel</h3>
+                    <p>Je kunt het spel naar wens aanpassen door de CSS-stijlen te wijzigen, nieuwe afbeeldingen toe te voegen of de JavaScript-code aan te passen.</p>
+                    <p>Probeer bijvoorbeeld:</p>
+                    <ul>
+                        <li>De kleuren van het spel veranderen</li>
+                        <li>De moeilijkheidsgraad aanpassen (door de snelheid te wijzigen)</li>
+                        <li>Nieuwe visuele effecten toevoegen</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <div class="tutorial-conclusion">
+            <h2>GEFELICITEERD!</h2>
+            <p>Je hebt met succes je eigen BrainRot-spel gemaakt! Veel plezier met spelen en delen met je vrienden.</p>
+            <a href="index.html" class="back-button">Terug naar het spel</a>
+        </div>
+    </div>
+</body>
+</html>
